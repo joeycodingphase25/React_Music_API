@@ -8,7 +8,10 @@ export default class Home extends Component {
         super(props);
         this.state = {
             redirect: null,
-            keys: ['C Major', 'G Major', 'A Major', 'E Major', 'B Major', 'F-Sharp Major', 'C-Sharp Major', 'F Major', 'B-Flat Major', 'E-Flat Major', 'A-Flat Major', 'C-Flat major', 'G-Flat Major', 'D-Flat Major']
+            keys: [],
+            // keys: ['C Major', 'G Major', 'A Major', 'E Major', 'B Major', 'F-Sharp Major', 'C-Sharp Major', 'F Major', 'B-Flat Major', 'E-Flat Major', 'A-Flat Major', 'C-Flat major', 'G-Flat Major', 'D-Flat Major']
+            era: [],
+            composers: []
         }
     }
 
@@ -19,6 +22,35 @@ export default class Home extends Component {
             this.setState({redirect:'/register'})
         }
     }
+    //get key sigs for drop down
+    getKeys = () => {
+        fetch('http://127.0.0.1:5000/api/key-signatures')
+            .then(res => res.json())
+            .then(data => {
+                this.setState({keys: data })
+            })
+    }
+
+    // get eras for drop down
+    getEras = () => {
+        fetch('http://127.0.0.1:5000/api/eras')
+            .then(res => res.json())
+            .then(data => {
+                this.setState({era: data})
+
+            })
+    }
+    // get eras for drop down
+    getComposers = () => {
+        fetch('http://127.0.0.1:5000/api/composers')
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                this.setState({composers: data})
+            })
+        }
+
+
     render() {
         return (
             this.state.redirect ? <Navigate to={this.state.redirect} /> :
@@ -28,20 +60,17 @@ export default class Home extends Component {
                     <h6 className='mt-3'>A Community Project</h6>
                 </div>
                 <div className='d-flex justify-content-around mt-3'>
-                    <select onChange={(e) => this.setState({redirect: `/${e.target.value}`})}>
-                        <option value='Renaissance'>Renaissance</option>
-                        <option value='Baroque'>Baroque</option>
-                        <option value='Classical'>Classical</option>
-                        <option value='Romantic'>Romantic</option>
-                        <option selected value='' disabled>Choose Era</option>
+                    <select defaultValue='era' onClick={this.getEras} onChange={(e) => this.setState({redirect: `/${e.target.value}`})}>
+                        {this.state.era.map(era => <option key={era.era_id} value={era.era_id}>{era.era}</option>)}
+                        <option value='era' disabled>Choose Era</option>
                     </select>
-                    <select onChange={(e) => this.setState({redirect: `/${e.target.value}`})}>
-                        {this.state.keys.map(key => <option value={key}>{key}</option>)}
-                        <option selected value='' disabled>Choose Key Signature</option>
+                    <select defaultValue='key' onClick={this.getKeys} onChange={(e) => this.setState({redirect: `/${e.target.value}`})}>
+                        {this.state.keys.map(key => <option key={key.key_id} value={key.key_id}>{key.key_signature}</option>)}
+                        <option value='key' disabled>Choose Key Signature</option>
                     </select>
-                    <select onChange={(e) => this.setState({redirect: `/${e.target.value}`})}>
-                        {/* Fectch the data from the API do this later */}
-                        <option selected value='' disabled>Composer(Coming Soon!)</option>
+                    <select defaultValue='composer' onClick={this.getComposers} onChange={(e) => this.setState({redirect: `/${e.target.value}`})}>
+                        {this.state.composers.map(composer => <option key={composer.composer_id} value={composer.composer_id}>{composer.composer_name}</option>)}
+                        <option value='composer'>Composers</option>
                     </select>
                 </div>
 

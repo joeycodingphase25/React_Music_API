@@ -7,6 +7,7 @@ import Login from "./main/Login";
 import Home from "./main/Home";
 import CreateEra from "./models/CreateEra";
 import CreateKey from "./models/CreateKey";
+import CreateComposer from "./models/CreateComposer";
 import "./css/styles.css"
 
 
@@ -37,7 +38,6 @@ export default class App extends Component{
   }
 
   render() {
-    console.log(window.location.path)
     return (
       <> 
         <Nav loggedIn={this.state.loggedIn} logUserOut={this.logout}/>
@@ -52,6 +52,7 @@ export default class App extends Component{
             <Route path="login" element={<Login flashMessage={this.flashMessage} login={this.login}/>}/>
             <Route path="create-era" element={<CreateEra flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
             <Route path="create-key" element={<CreateKey flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
+            <Route path="create-composer" element={<CreateComposer flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
             
           </Routes>
 

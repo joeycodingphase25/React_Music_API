@@ -19,6 +19,7 @@ export default function Nav(props) {
                 <Link className="nav-link active" aria-current="page" to="/composers">Composers</Link>
                 <Link className="nav-link active" aria-current="page" to="/create-era">Create-Era</Link>
                 <Link className="nav-link active" aria-current="page" to="/create-key">Create-Key</Link>
+                <Link className="nav-link active" aria-current="page" to="/create-composer">Create-Composer</Link>
                 <Link className="nav-link active" aria-current="page" to="/create-song">Create-Song</Link>
                 { props.loggedIn ? (<><Link className="nav-link active" aria-current="page" to="/" onClick={props.logUserOut}>Logout</Link></>) : (
                   <>
