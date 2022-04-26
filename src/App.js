@@ -1,10 +1,11 @@
 import Nav from "./components/Nav"
 import React, { Component } from 'react'
 import { Routes, Route } from 'react-router-dom';
-import Register from "./views/Register";
+import Register from "./main/Register";
 import AlertMessage from "./components/AlertMessage";
-import Login from "./views/Login";
-import Home from "./views/Home";
+import Login from "./main/Login";
+import Home from "./main/Home";
+import CreateEra from "./models/CreateEra";
 
 export default class App extends Component{
   constructor(props){
@@ -36,13 +37,15 @@ export default class App extends Component{
     return (
       <> 
         <Nav loggedIn={this.state.loggedIn} logUserOut={this.logout}/>
+        {/* Put a Background image of a piano landscape to prettify the home page  */}
+        {/* className='container' sets it to a container width!! */}
         <div className="container">
         {this.state.message ? <AlertMessage category={this.state.category} message={this.state.message} flashMessage={this.flashMessage}/> : null}
           <Routes>
-            <Route path="/" element={<Home />}/>
+            <Route path="/" element={<Home flashMessage={this.flashMessage} loggedIn={this.state.loggedIn}/>}/>
             <Route path="register" element={<Register flashMessage={this.flashMessage}/>}/>
             <Route path="login" element={<Login flashMessage={this.flashMessage} login={this.login}/>}/>
-            <Route path="login" element={<Login flashMessage={this.flashMessage} login={this.login}/>}/>
+            <Route path="create-era" element={<CreateEra flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
             
           </Routes>
 

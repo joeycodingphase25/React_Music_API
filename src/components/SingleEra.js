@@ -1,0 +1,1 @@
+// to edit in the view eras, have a click open to edit era

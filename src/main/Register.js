@@ -40,8 +40,10 @@ export default function Register(props) {
         }
     }
     return (
+        <>
         <form onSubmit={handleSubmit}>
             <h3 className='text-center'>Register Here</h3>
+            <h6 className='text-center text-danger'>Must Be Logged In To Edit Database!</h6>
             <div className='form-group'>
                 <label htmlFor='username'>Username</label>
                 <input type='text' name='username' className='form-control' placeholder='Username' />
@@ -54,5 +56,9 @@ export default function Register(props) {
                 <input type='submit' className='btn btn-primary w-100' value='Register' />
             </div>
         </form>
+        <div className='text-center'>
+            <h3>Already Have an Account?</h3><button className="btn btn-success"onClick={()=>navigate('/login')}>Login Here</button>
+        </div>
+        </>
     )
 }
