@@ -6,6 +6,9 @@ import AlertMessage from "./components/AlertMessage";
 import Login from "./main/Login";
 import Home from "./main/Home";
 import CreateEra from "./models/CreateEra";
+import CreateKey from "./models/CreateKey";
+import "./css/styles.css"
+
 
 export default class App extends Component{
   constructor(props){
@@ -34,10 +37,12 @@ export default class App extends Component{
   }
 
   render() {
+    console.log(window.location.path)
     return (
       <> 
         <Nav loggedIn={this.state.loggedIn} logUserOut={this.logout}/>
         {/* Put a Background image of a piano landscape to prettify the home page  */}
+        
         {/* className='container' sets it to a container width!! */}
         <div className="container">
         {this.state.message ? <AlertMessage category={this.state.category} message={this.state.message} flashMessage={this.flashMessage}/> : null}
@@ -46,6 +51,7 @@ export default class App extends Component{
             <Route path="register" element={<Register flashMessage={this.flashMessage}/>}/>
             <Route path="login" element={<Login flashMessage={this.flashMessage} login={this.login}/>}/>
             <Route path="create-era" element={<CreateEra flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
+            <Route path="create-key" element={<CreateKey flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
             
           </Routes>
 

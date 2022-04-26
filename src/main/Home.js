@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Navigate } from 'react-router-dom'
+import "../css/styles.css"
+
 
 export default class Home extends Component {
     constructor(props){
@@ -20,17 +22,12 @@ export default class Home extends Component {
     render() {
         return (
             this.state.redirect ? <Navigate to={this.state.redirect} /> :
-            <div className='bg-info'>
-                <div className='text-start fw-bold mt-3'>
-                        <h1>Welcome To The Music API</h1>
+            <>
+                <div className='hero-image text-center text-white'>
+                    <h1>Music API</h1>
+                    <h6 className='mt-3'>A Community Project</h6>
                 </div>
-                <div className='text-end fw-bold mt-3'>
-                        <h1>Everyone Can Add To the API!</h1>
-                </div>
-                <div className='text-start fw-bold mt-3'>
-                    <h1>Explore Each component of Music!</h1>
-                </div>
-                <div className='d-flex justify-content-around'>
+                <div className='d-flex justify-content-around mt-3'>
                     <select onChange={(e) => this.setState({redirect: `/${e.target.value}`})}>
                         <option value='Renaissance'>Renaissance</option>
                         <option value='Baroque'>Baroque</option>
@@ -49,9 +46,10 @@ export default class Home extends Component {
                 </div>
 
                 <div className='text-start fw-bold mt-4 pt-4'>
-                    <button onClick={this.handleAdd} className='btn btn-danger w-100'>Add to the Database!</button>   
+                    <button onClick={this.handleAdd} className='btn btn-outline-dark w-100'>Add to the Database!</button>   
                 </div>
-            </div>
+            
+            </>
             
         )
     }

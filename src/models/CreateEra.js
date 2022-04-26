@@ -11,7 +11,7 @@ export default function CreateEra(props) {
 
     useEffect(() => {
         if (!loggedIn){
-            flashMessage('You must be logged in to create a post', 'danger')
+            flashMessage('You must be logged in to create an Era', 'danger')
             navigate('/login')
         }
     }, [loggedIn, flashMessage, navigate])
@@ -48,19 +48,29 @@ export default function CreateEra(props) {
 
     }
     return (
+        <>
         <form onSubmit={handleSubmit}>
-            <h3 className='text-center'>Create New Eras</h3>
+            <h3 className='text-center mt-3'>Create New Eras</h3>
+            <h5>Please try your best to keep the information accurate!</h5>
             <div className='form-group'>
                 <label htmlFor='era'>Era Name</label>
                 <input type='text' name='era' className='form-control' placeholder='Enter Era Name' />
                 <label htmlFor='about_era'>About the Era</label>
                 <input type='text' name='about_era' className='form-control' placeholder='Enter Era instruments, common practices, etc.' />
                 <label htmlFor='date'>Era Time-Line</label>
-                <input type='text' name='date' className='form-control' placeholder='Enter Era instruments, common practices, etc.' />
+                <input type='text' name='date' className='form-control' placeholder='Enter Era Date (format -> 1900-2000)' />
                 <label htmlFor='more_info'>Extra Info?</label>
                 <input type='text' name='more_info' className='form-control' placeholder='Enter Some Facts/or myths that are fun! verified or not' />
                 <input type='submit' className='btn btn-outline-dark w-100' value='Create Era' />
             </div>
         </form>
+        <div className='text-center mt-3'>
+            The Example Card Era will go here. After creation will be directed to view single era
+        </div>
+
+        <div className='text-center mt-3'>
+            <h3>Question or Concern?</h3><button className="btn btn-outline-danger"onClick={()=>navigate('/email')}>Email Me!</button>
+        </div>
+        </>
     )
 }
