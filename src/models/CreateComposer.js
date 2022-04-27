@@ -66,10 +66,10 @@ export default function CreateComposer(props) {
                 <input type='text' name='composer' className='form-control' placeholder='Enter Composer Name' />
 
                 {/* Select Drop Down here for era */}
-                <label id='era' htmlFor='era'>Choose the Composers Era</label>
-                <select onChange={(e)=>setChosen(e.target.value)}>
+                
+                <select defaultValue='default' className='w-100'onChange={(e)=>setChosen(e.target.value)}>
                 {era.map(era => <option key={era.era_id} value={era.era_id}>{era.era}</option>)}
-                    <option selected value='' disabled>Choose Era</option>
+                    <option value='default' disabled>Choose Era</option>
                 </select>
 
                 <label htmlFor='Image'>Image url</label>
@@ -82,7 +82,7 @@ export default function CreateComposer(props) {
             </div>
         </form>
         <div className='text-center mt-3'>
-            The Example Card Era will go here. After creation will be directed to view single era
+            The Example Card Composer will go here. After creation will be directed to view single Composer
         </div>
 
         <div className='text-center mt-3'>

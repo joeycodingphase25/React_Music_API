@@ -55,6 +55,7 @@ export default function CreateEra(props) {
             <div className='form-group'>
                 <label htmlFor='era'>Era Name</label>
                 <input type='text' name='era' className='form-control' placeholder='Enter Era Name' />
+                
                 <label htmlFor='about_era'>About the Era</label>
                 <input type='text' name='about_era' className='form-control' placeholder='Enter Era instruments, common practices, etc.' />
                 <label htmlFor='date'>Era Time-Line</label>
