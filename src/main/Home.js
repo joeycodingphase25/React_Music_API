@@ -75,7 +75,7 @@ export default class Home extends Component {
                 </div>
 
                 <div className='text-start fw-bold mt-4 pt-4'>
-                    <button onClick={this.handleAdd} className='btn btn-outline-dark w-100'>Add to the Database!</button>   
+                    <button onClick={this.handleAdd} className='btn btn-outline-dark w-100'>Contribute Your Knowledge!</button>   
                 </div>
             
             </>
