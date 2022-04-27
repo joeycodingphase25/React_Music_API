@@ -15,6 +15,9 @@ import "./css/styles.css"
 import SingleEra from "./components/SingleEra";
 import SingleKey from "./components/SingleKey";
 import DisplayComposers from "./views/DisplayComposers";
+import SingleComposer from "./components/SingleComposer";
+import DisplaySongs from "./views/DisplaySongs";
+import SingleSong from "./components/SingleSong";
 
 
 export default class App extends Component{
@@ -25,7 +28,7 @@ export default class App extends Component{
           message: null,
           category: null,
           loggedIn: localStorage.getItem('token') ? true : false,
-          apiBaseUrl: window.location.origin === 'http://localhost:3000' ? '{props.apiBaseUrl}': 'https://music-api-community.herokuapp.com/'
+          apiBaseUrl: window.location.origin === 'localhost:3000' ? '{props.apiBaseUrl}': 'https://music-api-community.herokuapp.com/'
           
       }
   }
@@ -68,9 +71,11 @@ export default class App extends Component{
             <Route path="key/:keyId" element={<SingleKey flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
             {/* /composers */}
             <Route path="composers" element={<DisplayComposers flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
-            {/* /compoers/:composerId */}
+            <Route path="composer/:composerId" element={<SingleComposer flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
             {/* /composer/:composerId/songs  **displays all songs for composer */}
             {/* /songs */}
+            <Route path="songs" element={<DisplaySongs flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
+            <Route path="song/:songId" element={<SingleSong flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
             {/* /song/:songId */}
           </Routes>
 

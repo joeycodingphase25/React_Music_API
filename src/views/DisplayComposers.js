@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 export default function DisplayComposers(props) {
     const [ composers, setComposers ] = useState([]);
-    const [editMode, setEditMode] = useState(false);
     const navigate = useNavigate();
 
     useEffect(()=>{

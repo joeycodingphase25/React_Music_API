@@ -1,11 +1,11 @@
 // display all songs, maybe a drop down to search by nameimport React from 'react'
+
 import KeyCard from '../cards/KeyCard';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function DisplayKeys(props) {
     const [ keys, setKeys ] = useState([]);
-    const [editMode, setEditMode] = useState(false);
     const navigate = useNavigate();
 
     useEffect(()=>{

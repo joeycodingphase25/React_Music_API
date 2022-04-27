@@ -115,7 +115,7 @@ export default function CreateSong(props) {
             </div>
         </form>
         <div className='text-center mt-3'>
-            Add Link To Henle WebSite Here --
+            <a href='https://www.henle.de/us/about-us/levels-of-difficulty-piano/'>What is the Henle Difficulty</a><br></br>
             The Example Card Song will go here. After creation will be directed to view single song
         </div>
         <hr></hr>

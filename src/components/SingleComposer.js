@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import ComposerCard from '../cards/ComposerCard'
 
 
-export default function SingleEra(props) {
+export default function SingleComposer(props) {
     const { composerId } = useParams()
     const [ composer, setComposer ] = useState([])
     const [editMode, setEditMode] = useState(false)

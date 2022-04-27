@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 export default function DisplayEras(props) {
     const [ eras, setEras ] = useState([]);
-    const [editMode, setEditMode] = useState(false);
     const navigate = useNavigate();
 
     useEffect(()=>{
