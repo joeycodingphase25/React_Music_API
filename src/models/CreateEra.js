@@ -55,7 +55,7 @@ export default function CreateEra(props) {
             <div className='form-group'>
                 <label htmlFor='era'>Era Name</label>
                 <input type='text' name='era' className='form-control' placeholder='Enter Era Name' />
-                
+
                 <label htmlFor='about_era'>About the Era</label>
                 <input type='text' name='about_era' className='form-control' placeholder='Enter Era instruments, common practices, etc.' />
                 <label htmlFor='date'>Era Time-Line</label>
@@ -68,7 +68,7 @@ export default function CreateEra(props) {
         <div className='text-center mt-3'>
             The Example Card Era will go here. After creation will be directed to view single era
         </div>
-
+        <hr></hr>
         <div className='text-center mt-3'>
             <h3>Question or Request?</h3><button className="btn btn-outline-danger"onClick={()=>navigate('/email')}>Email Me!</button>
         </div>

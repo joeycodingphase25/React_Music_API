@@ -10,8 +10,10 @@ import CreateKey from "./models/CreateKey";
 import CreateSong from "./models/CreateSong";
 import CreateComposer from "./models/CreateComposer";
 import DisplayEras from "./views/DisplayEras"
+import DisplayKeys from "./views/DisplayKeys";
 import "./css/styles.css"
 import SingleEra from "./components/SingleEra";
+import SingleKey from "./components/SingleKey";
 
 
 export default class App extends Component{
@@ -59,7 +61,12 @@ export default class App extends Component{
             <Route path="create-song" element={<CreateSong flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
             <Route path="eras" element={<DisplayEras flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
             <Route path="era/:eraId" element={<SingleEra flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
-            
+            <Route path="keys" element={<DisplayKeys flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
+            <Route path="key/:keyId" element={<SingleKey flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
+            {/* /composers */}
+            {/* /compoers/:composerId */}
+            {/* /songs */}
+            {/* /song/:songId */}
           </Routes>
 
         </div>

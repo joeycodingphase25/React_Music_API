@@ -39,9 +39,10 @@ export default function CreateEra(props) {
         }).then(res => res.json())
             .then(data => {
                 if (data.error){
+                    // props.flashMessage(`An entry error has occured, please review and try again`, 'danger')
                     console.error(data.error)
                 }else {
-                    props.flashMessage(`The post ${data.key_signature} has been created`, 'success')
+                    props.flashMessage(`The Key Signature ${data.key_signature} has been created`, 'success')
                     navigate('/keys')
                 }
             })
@@ -70,7 +71,7 @@ export default function CreateEra(props) {
         <div className='text-center mt-3'>
             The Example Card Key will go here. After creation will be directed to view single Key
         </div>
-
+        <hr></hr>
         <div className='text-center mt-3'>
             <h3>Question or Request?</h3><button className="btn btn-outline-danger"onClick={()=>navigate('/email')}>Email Me!</button>
         </div>

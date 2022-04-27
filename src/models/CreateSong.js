@@ -81,7 +81,7 @@ export default function CreateSong(props) {
                 
                 {/* grab the composer from the api, and then use to hook to change status */}
 
-                <label htmlFor='song_name'>Song Name</label>
+                <label htmlFor='song_name'>Song Name (Be Sure to Check it's not a duplicate!)</label>
                 <input type='text' name='song_name' className='form-control' placeholder='Name of the song (ex. Op 28 No 7, "song name")' />
 
                 <select defaultValue='default' onChange={(e)=>setChosenComp(e.target.value)}>
@@ -118,7 +118,7 @@ export default function CreateSong(props) {
             Add Link To Henle WebSite Here --
             The Example Card Song will go here. After creation will be directed to view single song
         </div>
-
+        <hr></hr>
         <div className='text-center mt-3'>
             <h3>Question or Request?</h3><button className="btn btn-outline-danger"onClick={()=>navigate('/email')}>Email Me!</button>
         </div>

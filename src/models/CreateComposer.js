@@ -84,7 +84,7 @@ export default function CreateComposer(props) {
         <div className='text-center mt-3'>
             The Example Card Composer will go here. After creation will be directed to view single Composer
         </div>
-
+        <hr></hr>
         <div className='text-center mt-3'>
             <h3>Question or Request?</h3><button className="btn btn-outline-danger"onClick={()=>navigate('/email')}>Email Me!</button>
         </div>

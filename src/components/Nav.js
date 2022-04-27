@@ -17,6 +17,7 @@ export default function Nav(props) {
                 <Link className="nav-link active" aria-current="page" to="/eras">Eras</Link>
                 <Link className="nav-link active" aria-current="page" to="/keys">Key-Signatures</Link>
                 <Link className="nav-link active" aria-current="page" to="/composers">Composers</Link>
+                <Link className="nav-link active" aria-current="page" to="/songs">Songs</Link>
                 <Link className="nav-link active" aria-current="page" to="/create-era">Create-Era</Link>
                 <Link className="nav-link active" aria-current="page" to="/create-key">Create-Key</Link>
                 <Link className="nav-link active" aria-current="page" to="/create-composer">Create-Composer</Link>
