@@ -24,7 +24,7 @@ export default class Home extends Component {
     }
     //get key sigs for drop down
     getKeys = () => {
-        fetch(`${props.apiBaseUrl}/api/key-signatures`)
+        fetch(`${this.props.apiBaseUrl}/api/key-signatures`)
             .then(res => res.json())
             .then(data => {
                 this.setState({keys: data })
@@ -33,7 +33,7 @@ export default class Home extends Component {
 
     // get eras for drop down
     getEras = () => {
-        fetch(`${props.apiBaseUrl}/api/eras`)
+        fetch(`${this.props.apiBaseUrl}/api/eras`)
             .then(res => res.json())
             .then(data => {
                 this.setState({era: data})
@@ -42,7 +42,7 @@ export default class Home extends Component {
     }
     // get eras for drop down
     getComposers = () => {
-        fetch(`${props.apiBaseUrl}/api/composers`)
+        fetch(`${this.props.apiBaseUrl}/api/composers`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)

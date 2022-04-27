@@ -18,7 +18,7 @@ export default class Login extends Component {
         let myHeaders = new Headers();
         myHeaders.append('Authorization', "Basic " + btoa(`${username}:${password}`))
         
-        let res = await fetch(`${props.apiBaseUrl}/api/token`, {
+        let res = await fetch(`${this.props.apiBaseUrl}/api/token`, {
             headers: myHeaders
         })
         let data = await res.json();
