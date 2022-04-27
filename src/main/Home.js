@@ -60,17 +60,17 @@ export default class Home extends Component {
                     <h6 className='mt-3'>A Community Project</h6>
                 </div>
                 <div className='d-flex justify-content-around mt-3'>
-                    <select defaultValue='era' onClick={this.getEras} onChange={(e) => this.setState({redirect: `/${e.target.value}`})}>
+                    <select defaultValue='era' onClick={this.getEras} onChange={(e) => this.setState({redirect: `/era/${e.target.value}`})}>
                         {this.state.era.map(era => <option key={era.era_id} value={era.era_id}>{era.era}</option>)}
                         <option value='era' disabled>Choose Era</option>
                     </select>
-                    <select defaultValue='key' onClick={this.getKeys} onChange={(e) => this.setState({redirect: `/${e.target.value}`})}>
+                    <select defaultValue='key' onClick={this.getKeys} onChange={(e) => this.setState({redirect: `/key/${e.target.value}`})}>
                         {this.state.keys.map(key => <option key={key.key_id} value={key.key_id}>{key.key_signature}</option>)}
                         <option value='key' disabled>Choose Key Signature</option>
                     </select>
-                    <select defaultValue='composer' onClick={this.getComposers} onChange={(e) => this.setState({redirect: `/${e.target.value}`})}>
+                    <select defaultValue='composer' onClick={this.getComposers} onChange={(e) => this.setState({redirect: `/composer/${e.target.value}`})}>
                         {this.state.composers.map(composer => <option key={composer.composer_id} value={composer.composer_id}>{composer.composer_name}</option>)}
-                        <option value='composer'>Composers</option>
+                        <option value='composer' disabled>Composers</option>
                     </select>
                 </div>
 

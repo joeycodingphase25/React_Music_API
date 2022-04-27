@@ -61,7 +61,7 @@ export default function CreateEra(props) {
                 <input type='text' name='date' className='form-control' placeholder='Enter Era Date (format -> 1900-2000)' />
                 <label htmlFor='more_info'>Extra Info?</label>
                 <input type='text' name='more_info' className='form-control' placeholder='Enter Some Facts/or myths that are fun! verified or not' />
-                <input type='submit' className='btn btn-outline-dark w-100' value='Create Era' />
+                <input type='submit' className='btn btn-outline-dark w-100 p-3' value='Create Era' />
             </div>
         </form>
         <div className='text-center mt-3'>
@@ -69,7 +69,7 @@ export default function CreateEra(props) {
         </div>
 
         <div className='text-center mt-3'>
-            <h3>Question or Concern?</h3><button className="btn btn-outline-danger"onClick={()=>navigate('/email')}>Email Me!</button>
+            <h3>Question or Request?</h3><button className="btn btn-outline-danger"onClick={()=>navigate('/email')}>Email Me!</button>
         </div>
         </>
     )

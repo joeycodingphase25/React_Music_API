@@ -8,7 +8,9 @@ import Home from "./main/Home";
 import CreateEra from "./models/CreateEra";
 import CreateKey from "./models/CreateKey";
 import CreateComposer from "./models/CreateComposer";
+import DisplayEras from "./views/DisplayEras"
 import "./css/styles.css"
+import SingleEra from "./components/SingleEra";
 
 
 export default class App extends Component{
@@ -53,6 +55,8 @@ export default class App extends Component{
             <Route path="create-era" element={<CreateEra flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
             <Route path="create-key" element={<CreateKey flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
             <Route path="create-composer" element={<CreateComposer flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
+            <Route path="eras" element={<DisplayEras flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
+            <Route path="era/:eraId" element={<SingleEra flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
             
           </Routes>
 

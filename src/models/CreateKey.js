@@ -64,7 +64,7 @@ export default function CreateEra(props) {
 
                 <label htmlFor='more_info'>Extra Info?</label>
                 <input type='text' name='more_info' className='form-control' placeholder='Enter Some Facts/or myths that are fun! verified or not' />
-                <input type='submit' className='btn btn-outline-dark w-100' value='Create Key Signature' />
+                <input type='submit' className='btn btn-outline-dark w-100 p-3' value='Create Key Signature' />
             </div>
         </form>
         <div className='text-center mt-3'>
@@ -72,7 +72,7 @@ export default function CreateEra(props) {
         </div>
 
         <div className='text-center mt-3'>
-            <h3>Question or Requests?</h3><button className="btn btn-outline-danger"onClick={()=>navigate('/email')}>Email Me!</button>
+            <h3>Question or Request?</h3><button className="btn btn-outline-danger"onClick={()=>navigate('/email')}>Email Me!</button>
         </div>
         </>
         
