@@ -11,7 +11,8 @@ export default function CreateSong(props) {
     // hooks for handling COMPOSER, DIFFICULTY and KEY_SIG
     const [composers, setComposers] = useState([])
     const [chosenComp, setChosenComp] = useState('')
-    const [difficulty, setDifficulty] = useState(null)
+    const [difficulty, setDifficulty] = useState([1,2,3,4,5,6,7,8,9,10])
+    const [chosenDifficulty, setChosenDifficulty] = useState(null)
     const [keys, setKeys] = useState([])
     const [chosenKey, setChosenKey] = useState('')
 
@@ -46,15 +47,15 @@ export default function CreateSong(props) {
         // COMPOSER_NAME IS A DROP DOWN ** NEED A FETCH FOR THAT
         // DIFFICULTY IS A DROP DOWN
         // 
-        let composer_name = chosenComp; 
-        let difficulty = difficulty;
-        let key_signature = chosenKey;
+        let composer_id = chosenComp; 
+        let difficulty = chosenDifficulty;
+        let keysignature_id = chosenKey;
         let more_info = e.target.more_info.value;
-        let song_info = e.target.msong_info.value;
+        let song_info = e.target.song_info.value;
         let song_link = e.target.song_link.value;
         let song_name = e.target.song_name.value;
 
-        let data = JSON.stringify({composer_name, difficulty, key_signature, more_info, song_info, song_link, song_name})
+        let data = JSON.stringify({composer_id, difficulty, keysignature_id, more_info, song_info, song_link, song_name})
 
         fetch('http://127.0.0.1:5000/api/song/create', {
             method: "POST",
@@ -77,12 +78,11 @@ export default function CreateSong(props) {
             <h3 className='text-center mt-3'>Create New Songs</h3>
             <h5>Please try your best to keep the information accurate!</h5>
             <div className='form-group'>
-                <label htmlFor='composer'>Composer Name</label>
-                <input type='text' name='composer' className='form-control' placeholder='Enter Composer Name' />
+                
                 {/* grab the composer from the api, and then use to hook to change status */}
 
-                <label htmlFor='name'>Song Name</label>
-                <input type='text' name='name' className='form-control' placeholder='Name of the song (ex. Op 28 No 7, "song name")' />
+                <label htmlFor='song_name'>Song Name</label>
+                <input type='text' name='song_name' className='form-control' placeholder='Name of the song (ex. Op 28 No 7, "song name")' />
 
                 <select defaultValue='default' onChange={(e)=>setChosenComp(e.target.value)}>
                 {composers.map(composer => <option key={composer.composer_id} value={composer.composer_id}>{composer.composer_name}</option>)}
@@ -91,9 +91,9 @@ export default function CreateSong(props) {
 
                 
                 {/* <label htmlFor='difficulty'>Difficulty</label> */}
-                <select defaultValue='default' onChange={(e)=>setDifficulty(e.target.value)}>
-                {[1,2,3,4,5,6,7,8,9,10].map(diff => <option key={diff} value={diff}>{diff}</option>)}
-                    <option value='default' disabled>Choose Difficulty</option>
+                <select defaultValue='default' onChange={(e)=>setChosenDifficulty(e.target.value)}>
+                {difficulty.map(diff => <option key={diff} value={diff}>{diff}</option>)}
+                    <option value='default' disabled>Henle Difficulty</option>
                 </select>
 
                 {/* <label htmlFor='key-sig'>Key Signature</label> */}
@@ -115,6 +115,7 @@ export default function CreateSong(props) {
             </div>
         </form>
         <div className='text-center mt-3'>
+            Add Link To Henle WebSite Here --
             The Example Card Song will go here. After creation will be directed to view single song
         </div>
 
