@@ -1,7 +1,7 @@
 // this function is responsible for displaying the eras in a format
 // the goal is to make this a reusable component in the EDIT ERA and VIEW ERA
 import React from 'react'
-import EraCard from '../components/EraCard'
+import EraCard from '../cards/EraCard'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 

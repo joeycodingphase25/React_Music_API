@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import EraCard from './EraCard'
+import EraCard from '../cards/EraCard'
 
 
 export default function SingleEra(props) {
