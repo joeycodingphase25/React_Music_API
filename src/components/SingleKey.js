@@ -10,7 +10,7 @@ export default function SingleKey(props) {
     const navigate = useNavigate()
 
     useEffect(()=>{
-        fetch(`http://127.0.0.1:5000/api/key/${keyId}`)
+        fetch(`${props.apiBaseUrl}/api/key/${keyId}`)
             .then(res=>res.json())
             .then(data => setKey_sig(data))
     }, [keyId])

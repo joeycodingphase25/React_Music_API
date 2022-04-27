@@ -24,13 +24,13 @@ export default function CreateSong(props) {
     }, [loggedIn, flashMessage, navigate])
     // GRAB THE COMPOSER ON DIDMOUNT
     useEffect(()=>{
-        fetch(`http://127.0.0.1:5000/api/composers`)
+        fetch(`${props.apiBaseUrl}/api/composers`)
         .then(res=>res.json())
         .then(data => setComposers(data))
     }, [])
     // GRAB THE KEY_sig ON DIDMOUNT
     useEffect(()=>{
-        fetch(`http://127.0.0.1:5000/api/key-signatures`)
+        fetch(`${props.apiBaseUrl}/api/key-signatures`)
             .then(res=>res.json())
             .then(data => setKeys(data))
     }, [])
@@ -57,7 +57,7 @@ export default function CreateSong(props) {
 
         let data = JSON.stringify({composer_id, difficulty, keysignature_id, more_info, song_info, song_link, song_name})
 
-        fetch('http://127.0.0.1:5000/api/song/create', {
+        fetch(`${props.apiBaseUrl}/api/song/create`, {
             method: "POST",
             headers: myHeaders,
             body: data

@@ -11,7 +11,7 @@ export default function DisplayEras(props) {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        fetch(`http://127.0.0.1:5000/api/eras`)
+        fetch(`${props.apiBaseUrl}/api/eras`)
             .then(res=>res.json())
             .then(data => setEras(data))
     }, [])

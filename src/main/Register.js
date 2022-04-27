@@ -24,7 +24,7 @@ export default function Register(props) {
                 password: password
             })
 
-            fetch('http://127.0.0.1:5000/api/users/create', {
+            fetch(`${props.apiBaseUrl}/api/users/create`, {
                 method: 'POST',
                 headers: myHeaders,
                 body: data

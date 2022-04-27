@@ -32,7 +32,7 @@ export default function CreateEra(props) {
 
         let data = JSON.stringify({key_signature, keys, about, more_info})
 
-        fetch('http://127.0.0.1:5000/api/key-signature/create', {
+        fetch(`${props.apiBaseUrl}/api/key-signature/create`, {
             method: "POST",
             headers: myHeaders,
             body: data

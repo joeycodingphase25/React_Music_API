@@ -20,7 +20,7 @@ export default function CreateComposer(props) {
     }, [loggedIn, flashMessage, navigate])
 
     useEffect( () => {
-        fetch('http://127.0.0.1:5000/api/eras')
+        fetch(`${props.apiBaseUrl}/api/eras`)
             .then(res => res.json())
             .then(eras => setEra(eras))
     }, [])
@@ -41,7 +41,7 @@ export default function CreateComposer(props) {
         console.log(chosen)
         let data = JSON.stringify({composer_name, era_id, image_url, more_info})
         
-        fetch('http://127.0.0.1:5000/api/composer/create', {
+        fetch(`${props.apiBaseUrl}/api/composer/create`, {
             method: "POST",
             headers: myHeaders,
             body: data

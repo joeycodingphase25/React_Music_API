@@ -9,7 +9,7 @@ export default function DisplayKeys(props) {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        fetch(`http://127.0.0.1:5000/api/key-signatures`)
+        fetch(`${props.apiBaseUrl}/api/key-signatures`)
             .then(res=>res.json())
             .then(data => setKeys(data))
     }, [])

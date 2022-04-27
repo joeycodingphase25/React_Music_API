@@ -14,6 +14,7 @@ import DisplayKeys from "./views/DisplayKeys";
 import "./css/styles.css"
 import SingleEra from "./components/SingleEra";
 import SingleKey from "./components/SingleKey";
+import DisplayComposers from "./views/DisplayComposers";
 
 
 export default class App extends Component{
@@ -23,7 +24,9 @@ export default class App extends Component{
           name: null,
           message: null,
           category: null,
-          loggedIn: localStorage.getItem('token') ? true : false
+          loggedIn: localStorage.getItem('token') ? true : false,
+          apiBaseUrl: window.location.origin === 'http://localhost:3000' ? '{props.apiBaseUrl}': 'https://music-api-community.herokuapp.com/'
+          
       }
   }
 
@@ -52,19 +55,21 @@ export default class App extends Component{
         <div className="container">
         {this.state.message ? <AlertMessage category={this.state.category} message={this.state.message} flashMessage={this.flashMessage}/> : null}
           <Routes>
-            <Route path="/" element={<Home flashMessage={this.flashMessage} loggedIn={this.state.loggedIn}/>}/>
-            <Route path="register" element={<Register flashMessage={this.flashMessage}/>}/>
-            <Route path="login" element={<Login flashMessage={this.flashMessage} login={this.login}/>}/>
-            <Route path="create-era" element={<CreateEra flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
-            <Route path="create-key" element={<CreateKey flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
-            <Route path="create-composer" element={<CreateComposer flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
-            <Route path="create-song" element={<CreateSong flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
-            <Route path="eras" element={<DisplayEras flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
-            <Route path="era/:eraId" element={<SingleEra flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
-            <Route path="keys" element={<DisplayKeys flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
-            <Route path="key/:keyId" element={<SingleKey flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn}/>}/>
+            <Route path="/" element={<Home flashMessage={this.flashMessage} loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl} />}/>
+            <Route path="register" element={<Register flashMessage={this.flashMessage} apiBaseUrl={this.state.apiBaseUrl}/>}/>
+            <Route path="login" element={<Login flashMessage={this.flashMessage} login={this.login} apiBaseUrl={this.state.apiBaseUrl}/>}/>
+            <Route path="create-era" element={<CreateEra flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
+            <Route path="create-key" element={<CreateKey flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
+            <Route path="create-composer" element={<CreateComposer flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
+            <Route path="create-song" element={<CreateSong flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
+            <Route path="eras" element={<DisplayEras flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
+            <Route path="era/:eraId" element={<SingleEra flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
+            <Route path="keys" element={<DisplayKeys flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
+            <Route path="key/:keyId" element={<SingleKey flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
             {/* /composers */}
+            <Route path="composers" element={<DisplayComposers flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
             {/* /compoers/:composerId */}
+            {/* /composer/:composerId/songs  **displays all songs for composer */}
             {/* /songs */}
             {/* /song/:songId */}
           </Routes>

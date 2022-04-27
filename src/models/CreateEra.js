@@ -32,7 +32,7 @@ export default function CreateEra(props) {
 
         let data = JSON.stringify({era, about_era, date, more_info})
 
-        fetch('http://127.0.0.1:5000/api/era/create', {
+        fetch(`${props.apiBaseUrl}/api/era/create`, {
             method: "POST",
             headers: myHeaders,
             body: data

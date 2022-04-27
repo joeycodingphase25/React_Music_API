@@ -10,7 +10,7 @@ export default function SingleEra(props) {
     const navigate = useNavigate()
 
     useEffect(()=>{
-        fetch(`http://127.0.0.1:5000/api/era/${eraId}`)
+        fetch(`${props.apiBaseUrl}/api/era/${eraId}`)
             .then(res=>res.json())
             .then(data => setEra(data))
     }, [eraId])
