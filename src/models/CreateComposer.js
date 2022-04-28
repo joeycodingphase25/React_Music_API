@@ -14,7 +14,7 @@ export default function CreateComposer(props) {
 
     useEffect(() => {
         if (!loggedIn){
-            flashMessage('You must be logged in to create an Era', 'danger')
+            flashMessage('You must be logged in to create A Composer', 'danger')
             navigate('/login')
         }
     }, [loggedIn, flashMessage, navigate])

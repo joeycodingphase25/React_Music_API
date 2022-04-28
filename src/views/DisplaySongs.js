@@ -19,7 +19,9 @@ export default function DisplaySongs(props) {
 
   return (
       <>
-        {songs.map(song=><SongCard song={song} key={song.song_id} />)}
+        <div className='row'> 
+            {songs.map(song=><SongCard song={song} key={song.song_id} />)}
+        </div>
       </>
   )
 }

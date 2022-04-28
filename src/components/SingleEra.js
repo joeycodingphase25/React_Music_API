@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import EraCard from '../cards/EraCard'
 
 
@@ -17,7 +17,7 @@ export default function SingleEra(props) {
     return (
         <>
         <EraCard era={era} />
-        {/* PUT COMPOSERS CARDS HERE */}
+        {/* PUT COMPOSERS CARDS HERE and fetch, hook the composer all API to map  */}
         </>
     )
 }

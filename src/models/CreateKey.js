@@ -11,7 +11,7 @@ export default function CreateEra(props) {
 
     useEffect(() => {
         if (!loggedIn){
-            flashMessage('You must be logged in to create a post', 'danger')
+            flashMessage('You must be logged in to create a Key', 'danger')
             navigate('/login')
         }
     }, [loggedIn, flashMessage, navigate])

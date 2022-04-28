@@ -18,6 +18,7 @@ import DisplayComposers from "./views/DisplayComposers";
 import SingleComposer from "./components/SingleComposer";
 import DisplaySongs from "./views/DisplaySongs";
 import SingleSong from "./components/SingleSong";
+import CreateDirector from "./views/CreateDirector";
 
 
 export default class App extends Component{
@@ -28,8 +29,7 @@ export default class App extends Component{
           message: null,
           category: null,
           loggedIn: localStorage.getItem('token') ? true : false,
-          apiBaseUrl: window.location.origin === 'localhost:3000' ? '{props.apiBaseUrl}': 'https://music-api-community.herokuapp.com/'
-          
+          apiBaseUrl: window.location.origin === 'http://localhost:3000/' ? 'http://127.0.0.1:5000': 'https://music-api-community.herokuapp.com/'
       }
   }
 
@@ -48,7 +48,9 @@ export default class App extends Component{
     this.setState({loggedIn: false})
   }
 
+  
   render() {
+    console.log(window.location.origin)
     return (
       <> 
         <Nav loggedIn={this.state.loggedIn} logUserOut={this.logout}/>
@@ -61,6 +63,7 @@ export default class App extends Component{
             <Route path="/" element={<Home flashMessage={this.flashMessage} loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl} />}/>
             <Route path="register" element={<Register flashMessage={this.flashMessage} apiBaseUrl={this.state.apiBaseUrl}/>}/>
             <Route path="login" element={<Login flashMessage={this.flashMessage} login={this.login} apiBaseUrl={this.state.apiBaseUrl}/>}/>
+            <Route path="create" element={<CreateDirector flashMessage={this.flashMessage} login={this.login} apiBaseUrl={this.state.apiBaseUrl}/>}/>
             <Route path="create-era" element={<CreateEra flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
             <Route path="create-key" element={<CreateKey flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>
             <Route path="create-composer" element={<CreateComposer flashMessage={this.flashMessage}  loggedIn={this.state.loggedIn} apiBaseUrl={this.state.apiBaseUrl}/>}/>

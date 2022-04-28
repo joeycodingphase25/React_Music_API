@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { useNavigate as navigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
 export default class Login extends Component {
@@ -35,9 +36,10 @@ export default class Login extends Component {
 
     render() {
         return (
-            this.state.redirect ? <Navigate to={this.state.redirect} /> :
+            <>
+            {this.state.redirect ? <Navigate to={this.state.redirect} /> : (
             <form onSubmit={this.handleSubmit}>
-                <h3 className='text-center'>Login Here</h3>
+                <h3 className='text-center mt-3'>Login Here</h3>
                 <div className='form-group'>
                     <label htmlFor='username'>Username</label>
                     <input type='text' name='username' className='form-control' placeholder='Username' />
@@ -45,7 +47,11 @@ export default class Login extends Component {
                     <input type='password' name='password' className='form-control' placeholder='Password' />
                     <input type='submit' className='btn btn-primary w-100' value='Login' />
                 </div>
-            </form>
+            </form>)}
+            <div className='text-center'>
+                <h3 className='mt-3'>Need An Account?</h3><button className="btn btn-outline-dark"onClick={()=>navigate('/register')}>Register Here</button>
+            </div>
+            </>
         )
     }
 }
