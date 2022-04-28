@@ -6,8 +6,7 @@ import EraCard from '../cards/EraCard'
 export default function SingleEra(props) {
     const { eraId } = useParams()
     const [ era, setEra ] = useState([])
-    const [editMode, setEditMode] = useState(false)
-    const navigate = useNavigate()
+
 
     useEffect(()=>{
         fetch(`${props.apiBaseUrl}/api/era/${eraId}`)

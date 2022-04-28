@@ -16,7 +16,7 @@ export default function Nav(props) {
             <button className="custom-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
             <span className="navbar-toggler-icon"></span>
             </button>
-            <div class={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarsExample09">
+            <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarsExample09">
             <div className="navbar-nav">
                 <Link className="nav-link active" onClick={handleNavCollapse} aria-current="page" to="/">Home</Link>
                 <Link className="nav-link active" onClick={handleNavCollapse} aria-current="page" to="/eras">Eras</Link>
@@ -27,7 +27,7 @@ export default function Nav(props) {
                 <Link className="nav-link active" onClick={handleNavCollapse} aria-current="page" to="/create-key">Create-Key</Link>
                 <Link className="nav-link active" onClick={handleNavCollapse} aria-current="page" to="/create-composer">Create-Composer</Link>
                 <Link className="nav-link active" onClick={handleNavCollapse} aria-current="page" to="/create-song">Create-Song</Link>
-                { props.loggedIn ? (<><Link className="nav-link active" onClick={handleNavCollapse} aria-current="page" to="/" onClick={props.logUserOut}>Logout</Link></>) : (
+                { props.loggedIn ? (<><Link className="nav-link active" aria-current="page" to="/" onClick={props.logUserOut}>Logout</Link></>) : (
                   <>
                   <Link className="nav-link active" onClick={handleNavCollapse} aria-current="page" to="/register">Register</Link>
                   <Link className="nav-link active" onClick={handleNavCollapse} aria-current="page" to="/login">Login</Link>

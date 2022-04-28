@@ -8,7 +8,7 @@ export default function SingleSong(props) {
     const { songId } = useParams()
     const [ song, setSong ] = useState([])
     const [editMode, setEditMode] = useState(false)
-    const navigate = useNavigate()
+    
 
     useEffect(()=>{
         fetch(`${props.apiBaseUrl}/api/song/${songId}`)

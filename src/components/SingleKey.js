@@ -6,8 +6,7 @@ import KeyCard from '../cards/KeyCard'
 export default function SingleKey(props) {
     const { keyId } = useParams()
     const [ key_sig, setKey_sig ] = useState([])
-    const [editMode, setEditMode] = useState(false)
-    const navigate = useNavigate()
+
 
     useEffect(()=>{
         fetch(`${props.apiBaseUrl}/api/key/${keyId}`)

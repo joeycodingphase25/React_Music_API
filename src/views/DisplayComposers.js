@@ -7,12 +7,15 @@ import { useNavigate } from 'react-router-dom';
 
 export default function DisplayComposers(props) {
     const [ composers, setComposers ] = useState([]);
-    const navigate = useNavigate();
+    // path this era somehow
+    
 
+    // console.log(composers)
     useEffect(()=>{
         fetch(`${props.apiBaseUrl}/api/composers`)
             .then(res=>res.json())
             .then(data => setComposers(data))
+
     }, [])
 
   return (
