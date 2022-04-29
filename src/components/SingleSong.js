@@ -10,11 +10,11 @@ export default function SingleSong(props) {
     
     // hooks for handling COMPOSER, DIFFICULTY and KEY_SIG
     const [composers, setComposers] = useState([])
-    const [chosenComp, setChosenComp] = useState('')
+    const [chosenComp, setChosenComp] = useState(song.composer_id)
     const [difficulty, setDifficulty] = useState([1,2,3,4,5,6,7,8,9,10])
-    const [chosenDifficulty, setChosenDifficulty] = useState(null)
+    const [chosenDifficulty, setChosenDifficulty] = useState(song.difficulty)
     const [keys, setKeys] = useState([])
-    const [chosenKey, setChosenKey] = useState('')
+    const [chosenKey, setChosenKey] = useState(song.keysignature_id)
     const [editMode, setEditMode] = useState(false)
 
     useEffect(()=>{
@@ -78,15 +78,15 @@ export default function SingleSong(props) {
     return (
         <>
         <div className='row text-center justify-content-center'>
-
+        <h4 className='text-center'>Single Song Preview</h4>
         <SongCard song={song} />
         </div>
         {/* log in to edit feature */}
         {props.loggedIn ? (
-            <div className='d-flex justify-content-center'>
-        <button className='btn btn-outline-dark w-100' onClick={() => setEditMode(!editMode)}>Toggle Song Edit Form</button>
+            <div className='d-flex justify-content-center mt-3'>
+        <button className='btn btn-outline-dark w-100 mt-3' onClick={() => setEditMode(!editMode)}>Toggle Song Edit Form</button>
         </div>
-            ): <div className='text-center'><Link to={'/login'}><button className='btn btn-outline-danger mt-3 text-center w-75'>You Must Have an Account to Edit!</button></Link></div>}
+            ): <div className='text-center'><Link to={'/login'}><button className='btn btn-outline-secondary mt-3 text-center w-75'>You Must Have an Account to Edit!</button></Link></div>}
                 
 
         {editMode ? (
@@ -98,7 +98,7 @@ export default function SingleSong(props) {
                 {/* grab the composer from the api, and then use to hook to change status */}
 
                 <label htmlFor='song_name'>Song Name (Be Sure to Check it's not a duplicate!)</label>
-                <input type='text' name='song_name' className='form-control' placeholder='Name of the song (ex. Op 28 No 7, "song name")' />
+                <input type='text' name='song_name' className='form-control' defaultValue={song.song_name} />
 
                 <select defaultValue='default' onChange={(e)=>setChosenComp(e.target.value)}>
                 {composers.map(composer => <option key={composer.composer_id} value={composer.composer_id}>{composer.composer_name}</option>)}

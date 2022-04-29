@@ -7,20 +7,23 @@ import { useNavigate } from 'react-router-dom';
 import SongCard from '../cards/SongCard';
 
 export default function DisplaySongs(props) {
-    const [songs, setSongs ] = useState([]);
+    const [composers, setComposers ] = useState([]);
     
     const navigate = useNavigate();
 
     useEffect(()=>{
-        fetch(`${props.apiBaseUrl}/api/songs`)
+        fetch(`${props.apiBaseUrl}/api/composers`)
             .then(res=>res.json())
-            .then(data => setSongs(data))
+            .then(data => setComposers(data))
     }, [])
 
   return (
       <>
+        <h1>List of All Songs:</h1>
         <div className='row'> 
-            {songs.map(song=><SongCard song={song} key={song.song_id} />)}
+            {composers.map(composer => composer.songs.map(song=><SongCard song={song} key={song.song_id} name={composer.composer_name} />))}
+
+            {/* {songs.map(song=><SongCard song={song} key={song.song_id} />)}  THIS CODE IS A RELIC*/}
         </div>
       </>
   )

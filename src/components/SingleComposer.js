@@ -1,16 +1,19 @@
 // will HAVE A BUILT IN EDIT FEATURE
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import ComposerCard from '../cards/ComposerCard'
 
 
+
 export default function SingleComposer(props) {
+    const location = useLocation()
     const { composerId } = useParams()
     const [era, setEra] = useState([]) // grab the list of eras from era
     const [ composer, setComposer ] = useState({})
-    const [chosen, setChosen] = useState(null)
+    const [chosen, setChosen] = useState(composer.era_id)
     const [editMode, setEditMode] = useState(false)
     
+    // const { era1 } = location.state
 
 
     useEffect( () => {
@@ -54,14 +57,16 @@ export default function SingleComposer(props) {
                         }else{
                             setComposer(data)
                             setEditMode(false)
-                            props.flashMessage(`${data.composer_name}You have successfully edited your post`, 'success')
+                            props.flashMessage(`You have successfully edited ${data.composer_name}`, 'success')
 
                         }
                     })
                 }
     return (
         <>
-        <ComposerCard composer={composer} />
+        <h1 className='text-primary text-center'>Composer Information</h1>
+        {/* fix era display with LINK tag pass states */}
+        <ComposerCard key={composer.composer_id} composer={composer} era={composer.era_id}/>
         {/* Edit Form for COMPOSER */}
         <div className='d-flex justify-content-center'>
         <button className='btn btn-outline-dark w-100' onClick={() => setEditMode(!editMode)}>Toggle Composer Edit Form</button>
@@ -76,9 +81,9 @@ export default function SingleComposer(props) {
 
                     {/* Select Drop Down here for era */}
                     
-                    <select defaultValue='default' className='w-100'onChange={(e)=>setChosen(e.target.value)}>
+                    <select defaultValue={composer.era_id} className='w-100' onChange={(e)=>setChosen(e.target.value)}>
                     {era.map(era => <option key={era.era_id} value={era.era_id}>{era.era}</option>)}
-                    <option value='default' disabled>{composer.era_id}</option>
+                    <option value='default' disabled></option>
                      </select>
 
                     <label htmlFor='Image'>Image url</label>

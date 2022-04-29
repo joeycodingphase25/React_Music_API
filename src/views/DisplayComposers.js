@@ -6,21 +6,24 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function DisplayComposers(props) {
-    const [ composers, setComposers ] = useState([]);
+    const [era, setEra] = useState([])
     // path this era somehow
     
 
     // console.log(composers)
     useEffect(()=>{
-        fetch(`${props.apiBaseUrl}/api/composers`)
+        fetch(`${props.apiBaseUrl}/api/eras`)
             .then(res=>res.json())
-            .then(data => setComposers(data))
+            .then(data => setEra(data))
 
     }, [])
 
   return (
       <>
-        {composers.map(composer =><ComposerCard composer={composer} key={composer.composer_id} />)}
+        <h1>List of All Composers:</h1>
+        {/* map the eras */}
+        {era.map(era => era.composers.map(composer =><ComposerCard composer={composer} key={composer.composer_id} name={composer.composer_name} era={era.era}/>))}
+        {/* {composers.map(composer =><ComposerCard composer={composer} key={composer.composer_id} name={composer.composer_name}/>)} */}
       </>
   )
 }

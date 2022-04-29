@@ -16,6 +16,7 @@ export default function DisplayKeys(props) {
 
   return (
       <>
+        <h1>List of All keys:</h1>
         {keys.map(key_sig=><KeyCard key_sig={key_sig} key={key_sig.key_id} />)}
       </>
   )

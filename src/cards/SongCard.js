@@ -1,9 +1,19 @@
 // for songs to display nicely
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 // ADD COMPOSER TRICKERY
 export default function SongCard(props) {
     const song = props.song
+    const name = props.name
+    /// test area
+    // useEffect(()=>{
+    //     fetch(`${props.apiBaseUrl}/api/composer/${song.composer_id}`)
+    //         .then(res=>res.json())
+    //         .then(data => setName(data.composer_name))
+    // }, [song.composer_id])
+    // console.log(name)
+    //// test end
+
     return (
         <>
       {/* <div className="card">
@@ -27,12 +37,12 @@ export default function SongCard(props) {
                         <Link to={`/song/${song.song_id}`}>
                             <h5 className="card-title text-dark">{song.song_name}</h5></Link>
                             <Link to={`/composer/${song.composer_id}`}>
-                                <h5>{song.composer_id}</h5>
+                                <h5>{props.name ? props.name : song.composer_id}</h5>
                             </Link>
-                        <p className="card-text">
+                        <p className="card-text overflow-auto">
                             Song Info: {song.song_info}
                         </p><hr></hr>
-                        <p>extra info: {song.more_info}</p>
+                        <p className='overflow-auto'>Extra Info: {song.more_info}</p>
                         <h6 className="card-subtitle mb-2 text-muted">Link To a Video: <a href={song.song_link}>{song.song_link ? song.song_link : 'Not Yet Added'}</a> </h6>
                         {props.loggedIn ? (
 

@@ -17,6 +17,7 @@ export default function DisplayEras(props) {
 
   return (
       <>
+        <h1>List of All Eras:</h1>
         {eras.map(era =><EraCard era={era} key={era.era_id} />)}
       </>
   )

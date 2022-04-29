@@ -17,6 +17,7 @@ export default function SingleKey(props) {
 
     return (
         <>
+        <h1 className='text-primary text-center'>Key Information</h1>
         <KeyCard key_sig={key_sig} />
         {/* PUT SONG CARDS HERE */}
         </>
